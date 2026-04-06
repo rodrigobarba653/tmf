@@ -1,13 +1,5 @@
 import Image from "next/image";
-
-const industries = [
-  "Oil & Gas",
-  "Chemical & Petrochemical",
-  "Power Generation",
-  "HVAC & Mechanical Systems",
-  "Industrial Manufacturing",
-  "Infrastructure & Utilities",
-];
+import { industriesContent } from "@/content/site";
 
 export function IndustriesSection() {
   return (
@@ -16,8 +8,8 @@ export function IndustriesSection() {
         <div className="relative order-2 lg:order-1 lg:sticky lg:top-24 lg:w-1/2 lg:shrink-0">
           <div className="relative aspect-square w-full overflow-hidden rounded-2xl bg-muted sm:aspect-[6/6]">
             <Image
-              src="/images/homepage-3.jpg"
-              alt="Industries we serve"
+              src={industriesContent.imageSrc}
+              alt={industriesContent.imageAlt}
               fill
               className="object-cover"
               sizes="(max-width: 1024px) 100vw, 50vw"
@@ -26,17 +18,16 @@ export function IndustriesSection() {
         </div>
         <div className="order-1 lg:order-2 lg:min-w-0 lg:flex-1">
           <p className="text-xs font-bold uppercase tracking-widest text-gray-500">
-            Industries we serve
+            {industriesContent.subheading}
           </p>
           <h2 className="mt-2 text-3xl font-semibold text-foreground sm:text-4xl">
-            Industries We Support
+            {industriesContent.title}
           </h2>
           <p className="mt-6 text-base leading-relaxed text-muted-foreground sm:text-lg">
-            Our products are trusted by industries that require performance,
-            compliance, and reliability in challenging operating conditions.
+            {industriesContent.body}
           </p>
           <ul className="mt-8 space-y-3">
-            {industries.map((industry) => (
+            {industriesContent.list.map((industry) => (
               <li
                 key={industry}
                 className="flex items-center gap-3 text-base font-medium text-foreground sm:text-lg"

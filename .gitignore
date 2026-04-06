@@ -20,6 +20,9 @@
 # production
 /build
 
+# local Python venv (PSD batch script)
+/.venv-psd/
+
 # misc
 .DS_Store
 *.pem

@@ -21,20 +21,10 @@ import {
 } from "@/components/ui/sheet";
 import { cn } from "@/lib/utils";
 import { useState, useEffect } from "react";
+import { navContent } from "@/content/site";
 
-const productsItems = [
-  { label: "Corrugated Hose", href: "/products/corrugated-hose" },
-  { label: "Interlocked Hose", href: "/products/interlocked-hose" },
-  { label: "Explosion Proof FC", href: "/products/explosion-proof-fc" },
-];
-
-const companyItems = [
-  { label: "About", href: "/company/about" },
-  { label: "Careers", href: "/company/careers" },
-  { label: "Certifications", href: "/company/certifications" },
-  { label: "Locations", href: "/company/locations" },
-  { label: "Quality System", href: "/company/quality-system" },
-];
+const productsItems = navContent.productsSubmenu;
+const companyItems = navContent.companySubmenu;
 
 function NavLink({
   href,
@@ -94,10 +84,14 @@ export function Nav() {
   return (
     <header className="fixed left-0 right-0 top-0 z-50 bg-white">
       <div className="mx-auto flex h-16 max-w-8xl items-center justify-between gap-4 px-4 sm:px-6 lg:px-8">
-        <Link href="/" className="flex shrink-0 items-center" aria-label="Home">
+        <Link
+          href="/"
+          className="flex shrink-0 items-center"
+          aria-label={navContent.homeAriaLabel}
+        >
           <Image
             src="/images/logo.svg"
-            alt="Tubos Mexicanos Flexibles"
+            alt={navContent.logoAlt}
             width={180}
             height={54}
             className="h-9 w-auto"
@@ -109,16 +103,19 @@ export function Nav() {
         {!mounted ? (
           <nav className="hidden items-center gap-1 md:flex" aria-label="Main">
             <Link href="/" className={navLinkClass}>
-              Home
+              {navContent.labels.home}
             </Link>
-            <Link href="/products/corrugated-hose" className={navLinkClass}>
-              Products
+            <Link
+              href={navContent.staticProductsEntryHref}
+              className={navLinkClass}
+            >
+              {navContent.labels.products}
             </Link>
             <Link href="/hose-assemblies" className={navLinkClass}>
-              Hose assemblies
+              {navContent.labels.hoseAssemblies}
             </Link>
-            <Link href="/company/about" className={navLinkClass}>
-              Company
+            <Link href="/about" className={navLinkClass}>
+              {navContent.labels.company}
             </Link>
           </nav>
         ) : (
@@ -126,10 +123,12 @@ export function Nav() {
             <NavigationMenu viewport={true} className="max-w-none">
               <NavigationMenuList className="gap-1">
                 <NavigationMenuItem>
-                  <NavLink href="/">Home</NavLink>
+                  <NavLink href="/">{navContent.labels.home}</NavLink>
                 </NavigationMenuItem>
                 <NavigationMenuItem>
-                  <NavigationMenuTrigger>Products</NavigationMenuTrigger>
+                  <NavigationMenuTrigger>
+                    {navContent.labels.products}
+                  </NavigationMenuTrigger>
                   <NavigationMenuContent>
                     <ul className="grid w-[220px] gap-1 p-2">
                       {productsItems.map((item) => (
@@ -148,25 +147,40 @@ export function Nav() {
                   </NavigationMenuContent>
                 </NavigationMenuItem>
                 <NavigationMenuItem>
-                  <NavLink href="/hose-assemblies">Hose assemblies</NavLink>
+                  <NavLink href="/hose-assemblies">
+                    {navContent.labels.hoseAssemblies}
+                  </NavLink>
                 </NavigationMenuItem>
                 <NavigationMenuItem>
-                  <NavigationMenuTrigger>Company</NavigationMenuTrigger>
+                  <NavigationMenuTrigger>
+                    {navContent.labels.company}
+                  </NavigationMenuTrigger>
                   <NavigationMenuContent>
-                    <ul className="grid w-[220px] gap-1 p-2">
-                      {companyItems.map((item) => (
-                        <li key={item.href}>
-                          <NavigationMenuLink asChild>
-                            <Link
-                              href={item.href}
-                              className="flex flex-col gap-1 rounded-sm p-2 text-sm transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground"
-                            >
-                              {item.label}
-                            </Link>
-                          </NavigationMenuLink>
-                        </li>
-                      ))}
-                    </ul>
+                    <div className="grid w-[420px] grid-cols-[1fr_1.3fr] gap-3 p-3">
+                      <div className="rounded-xl bg-primary/8 p-4">
+                        <p className="text-xs font-bold uppercase tracking-widest text-gray-500">
+                          Company
+                        </p>
+                        <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
+                          Learn more about TMFlex, our team, locations, and
+                          quality standards.
+                        </p>
+                      </div>
+                      <ul className="grid gap-1 sm:grid-cols-2">
+                        {companyItems.map((item) => (
+                          <li key={item.href}>
+                            <NavigationMenuLink asChild>
+                              <Link
+                                href={item.href}
+                                className="flex min-h-16 flex-col justify-center gap-1 rounded-lg p-3 text-sm transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground"
+                              >
+                                <span className="font-medium">{item.label}</span>
+                              </Link>
+                            </NavigationMenuLink>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
                   </NavigationMenuContent>
                 </NavigationMenuItem>
               </NavigationMenuList>
@@ -176,14 +190,14 @@ export function Nav() {
 
         <div className="hidden shrink-0 md:block">
           <Button asChild variant="default" size="default">
-            <Link href="/request-quote">Request a quote</Link>
+            <Link href={navContent.cta.href}>{navContent.cta.label}</Link>
           </Button>
         </div>
 
         {/* Mobile: static CTA + placeholder until mounted, then Sheet */}
         <div className="flex items-center gap-2 md:hidden">
           <Button asChild variant="default" size="sm">
-            <Link href="/request-quote">Request a quote</Link>
+            <Link href={navContent.cta.href}>{navContent.cta.label}</Link>
           </Button>
           {!mounted ? (
             <span
@@ -195,20 +209,26 @@ export function Nav() {
           ) : (
             <Sheet open={mobileOpen} onOpenChange={setMobileOpen}>
               <SheetTrigger asChild>
-                <Button variant="ghost" size="icon" aria-label="Open menu">
+                <Button
+                  variant="ghost"
+                  size="icon"
+                  aria-label={navContent.openMenuAriaLabel}
+                >
                   <Menu className="size-6" />
                 </Button>
               </SheetTrigger>
               <SheetContent side="right" className="w-[300px] sm:max-w-[300px]">
                 <SheetHeader>
-                  <SheetTitle className="sr-only">Menu</SheetTitle>
+                  <SheetTitle className="sr-only">
+                    {navContent.sheetMenuTitle}
+                  </SheetTitle>
                 </SheetHeader>
                 <nav className="flex flex-col gap-1 pt-6">
                   <MobileNavLink href="/" onOpenChange={setMobileOpen}>
-                    Home
+                    {navContent.labels.home}
                   </MobileNavLink>
                   <span className="px-4 pt-2 text-xs font-semibold uppercase tracking-wider text-muted-foreground">
-                    Products
+                    {navContent.labels.products}
                   </span>
                   {productsItems.map((item) => (
                     <MobileNavLink
@@ -223,10 +243,10 @@ export function Nav() {
                     href="/hose-assemblies"
                     onOpenChange={setMobileOpen}
                   >
-                    Hose assemblies
+                    {navContent.labels.hoseAssemblies}
                   </MobileNavLink>
                   <span className="px-4 pt-2 text-xs font-semibold uppercase tracking-wider text-muted-foreground">
-                    Company
+                    {navContent.labels.company}
                   </span>
                   {companyItems.map((item) => (
                     <MobileNavLink

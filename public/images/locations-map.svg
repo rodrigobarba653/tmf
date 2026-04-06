@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 520" fill="none" aria-hidden="true">
+  <defs>
+    <linearGradient id="loc-ocean" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#e8f4fc" />
+      <stop offset="100%" stop-color="#d4e8f5" />
+    </linearGradient>
+    <linearGradient id="loc-land" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#e2e8f0" />
+      <stop offset="100%" stop-color="#cbd5e1" />
+    </linearGradient>
+  </defs>
+  <rect width="500" height="520" fill="url(#loc-ocean)" />
+  <!-- Simplified contiguous U.S. + Alaska inset hint (decorative, not survey-accurate) -->
+  <path
+    fill="url(#loc-land)"
+    stroke="#94a3b8"
+    stroke-width="1.1"
+    stroke-linejoin="round"
+    d="M 88 52 L 118 48 L 168 58 L 218 42 L 278 38 L 338 52 L 392 78 L 418 118 L 428 168 L 412 218 L 378 252 L 332 268 L 298 288 L 268 312 L 242 318 L 198 302 L 168 278 L 142 248 L 118 208 L 98 168 L 82 128 L 78 88 Z"
+  />
+  <!-- Simplified Mexico -->
+  <path
+    fill="url(#loc-land)"
+    stroke="#94a3b8"
+    stroke-width="1.1"
+    stroke-linejoin="round"
+    d="M 168 278 L 198 302 L 242 318 L 248 352 L 232 398 L 198 448 L 158 472 L 118 458 L 92 418 L 88 368 L 108 318 L 138 288 Z"
+  />
+  <!-- Gulf / coast hint -->
+  <path
+    fill="none"
+    stroke="#7dd3fc"
+    stroke-width="0.9"
+    stroke-opacity="0.45"
+    d="M 248 318 Q 268 340 278 368"
+  />
+</svg>
