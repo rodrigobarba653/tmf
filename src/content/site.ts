@@ -72,19 +72,19 @@ export const productsContent = {
     {
       title: "Corrugated Hose",
       href: "/products/corrugated-hose",
-      imageSrc: "/images/homepage-4.jpg",
+      imageSrc: "/images/homepage-3.jpg",
       imageAlt: "Corrugated hose",
     },
     {
       title: "Interlocked Hose",
       href: "/products/interlocked-hose",
-      imageSrc: "/images/homepage-3.jpg",
+      imageSrc: "/images/interlocked.jpg",
       imageAlt: "Interlocked hose",
     },
     {
       title: "Explosion Proof Flexible Conduit",
       href: "/products/explosion-proof-fc",
-      imageSrc: "/images/homepage-2.jpg",
+      imageSrc: "/images/explosionProofFlexibleConduit.jpg",
       imageAlt: "Explosion proof flexible conduit",
     },
   ],
@@ -94,7 +94,7 @@ export const industriesContent = {
   subheading: "Industries we serve",
   title: "Industries We Support",
   body: "Our products are trusted by industries that require performance, compliance, and reliability in challenging operating conditions.",
-  imageSrc: "/images/homepage-3.jpg",
+  imageSrc: "/images/homepage-1.jpg",
   imageAlt: "Industries we serve",
   list: [
     "Oil & Gas",
@@ -138,8 +138,7 @@ export const contactContent = {
     companyLabel: "Company (optional)",
     companyPlaceholder: "Company name",
     messageLabel: "Message",
-    messagePlaceholder:
-      "Tell us about your application or quote request...",
+    messagePlaceholder: "Tell us about your application or quote request...",
     submitLabel: "Contact Us",
   },
 } as const;
@@ -151,7 +150,7 @@ export const footerContent = {
 export const companyPagesContent = {
   about: {
     hero: {
-      imageSrc: "/images/hero.jpg",
+      imageSrc: "/images/homepage-2.jpg",
       imageAlt: "About TMFlex",
       title: "About",
       body: "Decades of engineering experience, international production capabilities, and reliable distribution across North America.",
@@ -229,10 +228,7 @@ export const companyPagesContent = {
         locations: [
           {
             title: "Cumming, Georgia",
-            lines: [
-              "5290 Matt Hwy, Suite 502",
-              "PMB 204, Cumming, GA 30028",
-            ],
+            lines: ["5290 Matt Hwy, Suite 502", "PMB 204, Cumming, GA 30028"],
           },
         ],
       },
@@ -322,7 +318,7 @@ export const productsLandingContent = {
 export const productCategoryContent = {
   corrugated: {
     hero: {
-      imageSrc: "/images/homepage-4.jpg",
+      imageSrc: "/images/homepage-3.jpg",
       imageAlt: "Corrugated hose",
       title: "Corrugated Hose",
       body: "Annular corrugated stainless-steel hose for fluid transfer, vibration absorption, and demanding industrial service.",
@@ -340,7 +336,7 @@ export const productCategoryContent = {
   },
   interlocked: {
     hero: {
-      imageSrc: "/images/homepage-3.jpg",
+      imageSrc: "/images/interlocked.jpg",
       imageAlt: "Interlocked hose",
       title: "Interlocked Hose",
       body: "Flexible interlocked metal hose solutions for conveyance, protection, and industrial routing applications.",
@@ -358,7 +354,7 @@ export const productCategoryContent = {
   },
   explosionProofFc: {
     hero: {
-      imageSrc: "/images/homepage-2.jpg",
+      imageSrc: "/images/explosionProofFlexibleConduit.jpg",
       imageAlt: "Explosion proof flexible conduit",
       title: "Explosion Proof Flexible Conduit",
       body: "Flexible metallic conduit engineered for hazardous environments and applications that demand compliant, reliable protection.",
