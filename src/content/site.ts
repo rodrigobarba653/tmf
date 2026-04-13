@@ -41,7 +41,7 @@ export const navContent = {
 
 export const homeContent = {
   hero: {
-    imageSrc: "/images/homepage-3.jpg",
+    imageSrc: "/images/hero2.jpg",
     imageAlt: "Industrial hose and flexible tubing solutions",
     title: "Engineered Metal Hose & Flexible Hose Assemblies",
     body: "High-quality corrugated hose, interlocked hose, and explosion-proof flexible conduit for industrial and commercial applications.",
@@ -294,7 +294,7 @@ const productCategoryHeroSecondary = {
   variant: "outline" as const,
 };
 
-const productCategoryHeroHeight = "h-[420px] sm:h-[460px]" as const;
+export const productCategoryHeroHeight = "h-[420px] sm:h-[460px]" as const;
 
 export const productsLandingContent = {
   hero: {
@@ -321,7 +321,7 @@ export const productCategoryContent = {
       imageSrc: "/images/homepage-3.jpg",
       imageAlt: "Corrugated hose",
       title: "Corrugated Hose",
-      body: "Annular corrugated stainless-steel hose for fluid transfer, vibration absorption, and demanding industrial service.",
+      body: "Annular and omega stainless-steel corrugated hose families for fluid transfer, vibration absorption, and demanding industrial service.",
       primaryCta: { label: "Contact Us", href: "/#contact" },
       secondaryCta: productCategoryHeroSecondary,
       heightClassName: productCategoryHeroHeight,
@@ -329,10 +329,10 @@ export const productCategoryContent = {
     pageTitle: "Corrugated Hose",
     paragraphs: [
       "TMFlex corrugated metal hose is designed for applications that require flexibility, pressure capability, and reliable performance in challenging operating conditions.",
-      "Final technical data, product tables, and model listings are pending from the client. This page will be updated with the approved specifications and any PDF resources once they are delivered.",
+      "Select a product line below for specifications, features, and downloadable pressure or dimension charts from the manufacturer datasheet.",
     ],
     pendingSpecsBody:
-      "A detailed product table (sizes, pressures, materials, and ordering information) will appear here. If you are aligning content to shared PDFs, we can map each catalog section to this category after you confirm which documents apply.",
+      "Use the N-Type and P-Type product pages for features, imagery, and downloadable pressure charts.",
   },
   interlocked: {
     hero: {

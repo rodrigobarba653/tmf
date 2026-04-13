@@ -1,5 +1,5 @@
-import { ProductCategoryPageView } from "@/components/product-category-page";
+import { CorrugatedHoseOverview } from "@/components/corrugated-hose-overview";
 
 export default function CorrugatedHosePage() {
-  return <ProductCategoryPageView category="corrugated" />;
+  return <CorrugatedHoseOverview />;
 }

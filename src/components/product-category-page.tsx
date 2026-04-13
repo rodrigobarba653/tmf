@@ -16,7 +16,9 @@ export function ProductCategoryPageView({ category }: { category: ProductCategor
         title={content.pageTitle}
         paragraphs={content.paragraphs}
       />
-      <PendingSpecsNote body={content.pendingSpecsBody} />
+      {content.pendingSpecsBody.trim() ? (
+        <PendingSpecsNote body={content.pendingSpecsBody} />
+      ) : null}
       <ContactSection />
     </main>
   );
