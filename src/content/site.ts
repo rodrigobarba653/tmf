@@ -23,8 +23,24 @@ export const navContent = {
   },
   openMenuAriaLabel: "Open menu",
   sheetMenuTitle: "Menu",
-  productsSubmenu: [
-    { label: "Corrugated Hose", href: "/products/corrugated-hose" },
+  /**
+   * Products dropdown: optional `items` nests links under the parent (e.g. N/P under Corrugated Hose).
+   */
+  productsNavItems: [
+    {
+      label: "Corrugated Hose",
+      href: "/products/corrugated-hose",
+      items: [
+        {
+          label: "N-Type Corrugated Metal Hose",
+          href: "/products/corrugated-hose/n-type",
+        },
+        {
+          label: "P-Type Corrugated Metal Hose",
+          href: "/products/corrugated-hose/p-type",
+        },
+      ],
+    },
     { label: "Interlocked Hose", href: "/products/interlocked-hose" },
     {
       label: "Explosion Proof Flexible Conduit",

@@ -11,7 +11,9 @@ type IndustrialProductPageProps = {
   content: IndustrialProductDetailContent;
 };
 
-export function IndustrialProductPageView({ content }: IndustrialProductPageProps) {
+export function IndustrialProductPageView({
+  content,
+}: IndustrialProductPageProps) {
   const { breadcrumb, hero, lead, featuresHeading, features, spec, gallery } =
     content;
 
@@ -25,7 +27,10 @@ export function IndustrialProductPageView({ content }: IndustrialProductPageProp
           {breadcrumb.map((item, i) => (
             <li key={item.href} className="flex items-center gap-1">
               {i > 0 ? (
-                <ChevronRight className="size-4 shrink-0 opacity-60" aria-hidden />
+                <ChevronRight
+                  className="size-4 shrink-0 opacity-60"
+                  aria-hidden
+                />
               ) : null}
               {i < breadcrumb.length - 1 ? (
                 <Link
@@ -35,7 +40,9 @@ export function IndustrialProductPageView({ content }: IndustrialProductPageProp
                   {item.label}
                 </Link>
               ) : (
-                <span className="font-medium text-foreground">{item.label}</span>
+                <span className="font-medium text-foreground">
+                  {item.label}
+                </span>
               )}
             </li>
           ))}
@@ -45,12 +52,12 @@ export function IndustrialProductPageView({ content }: IndustrialProductPageProp
       <section className="w-full max-w-8xl mx-auto px-4 py-10 sm:px-6 lg:px-16 lg:py-14">
         <div className="grid grid-cols-1 gap-10 lg:grid-cols-2 lg:items-start lg:gap-14">
           <div className="lg:sticky lg:top-24 lg:self-start">
-            <div className="relative aspect-4/3 w-full overflow-hidden rounded-2xl border border-border bg-muted/30">
+            <div className="relative aspect-3/3 w-full overflow-hidden rounded-2xl border border-border bg-muted/30">
               <Image
                 src={hero.imageSrc}
                 alt={hero.imageAlt}
                 fill
-                className="object-contain p-6 sm:p-8"
+                className="object-contain"
                 sizes="(max-width: 1024px) 100vw, 50vw"
                 priority
               />

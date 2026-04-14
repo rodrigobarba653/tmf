@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { Menu } from "lucide-react";
+import { ChevronDown, Menu } from "lucide-react";
 import {
   NavigationMenu,
   NavigationMenuContent,
@@ -23,7 +23,7 @@ import { cn } from "@/lib/utils";
 import { useState, useEffect } from "react";
 import { navContent } from "@/content/site";
 
-const productsItems = navContent.productsSubmenu;
+const productsNavItems = navContent.productsNavItems;
 const companyItems = navContent.companySubmenu;
 
 function NavLink({
@@ -130,19 +130,46 @@ export function Nav() {
                     {navContent.labels.products}
                   </NavigationMenuTrigger>
                   <NavigationMenuContent>
-                    <ul className="grid w-[220px] gap-1 p-2">
-                      {productsItems.map((item) => (
-                        <li key={item.href}>
-                          <NavigationMenuLink asChild>
-                            <Link
-                              href={item.href}
-                              className="flex flex-col gap-1 rounded-sm p-2 text-sm transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground"
-                            >
-                              {item.label}
-                            </Link>
-                          </NavigationMenuLink>
-                        </li>
-                      ))}
+                    <ul className="grid min-w-[260px] max-w-[300px] gap-2 p-2">
+                      {productsNavItems.map((item) =>
+                        "items" in item && item.items ? (
+                          <li key={item.href} className="rounded-md">
+                            <NavigationMenuLink asChild>
+                              <Link
+                                href={item.href}
+                                className="flex flex-col gap-0.5 rounded-sm p-2 text-sm font-semibold transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground"
+                              >
+                                {item.label}
+                              </Link>
+                            </NavigationMenuLink>
+                            <ul className="ml-1 mt-1 space-y-0.5 border-l border-border pl-2.5">
+                              {item.items.map((sub) => (
+                                <li key={sub.href}>
+                                  <NavigationMenuLink asChild>
+                                    <Link
+                                      href={sub.href}
+                                      className="block rounded-sm py-1.5 pl-1 text-sm text-muted-foreground transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground"
+                                    >
+                                      {sub.label}
+                                    </Link>
+                                  </NavigationMenuLink>
+                                </li>
+                              ))}
+                            </ul>
+                          </li>
+                        ) : (
+                          <li key={item.href}>
+                            <NavigationMenuLink asChild>
+                              <Link
+                                href={item.href}
+                                className="flex flex-col gap-1 rounded-sm p-2 text-sm transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground"
+                              >
+                                {item.label}
+                              </Link>
+                            </NavigationMenuLink>
+                          </li>
+                        ),
+                      )}
                     </ul>
                   </NavigationMenuContent>
                 </NavigationMenuItem>
@@ -230,15 +257,47 @@ export function Nav() {
                   <span className="px-4 pt-2 text-xs font-semibold uppercase tracking-wider text-muted-foreground">
                     {navContent.labels.products}
                   </span>
-                  {productsItems.map((item) => (
-                    <MobileNavLink
-                      key={item.href}
-                      href={item.href}
-                      onOpenChange={setMobileOpen}
-                    >
-                      {item.label}
-                    </MobileNavLink>
-                  ))}
+                  {productsNavItems.map((item) =>
+                    "items" in item && item.items ? (
+                      <details
+                        key={item.href}
+                        className="group rounded-md [&_summary::-webkit-details-marker]:hidden"
+                      >
+                        <summary className="flex cursor-pointer list-none items-center justify-between rounded-md px-4 py-3 text-base font-medium text-foreground hover:bg-accent hover:text-accent-foreground">
+                          <span>{item.label}</span>
+                          <ChevronDown
+                            className="size-4 shrink-0 opacity-60 transition-transform group-open:rotate-180"
+                            aria-hidden
+                          />
+                        </summary>
+                        <div className="ml-2 border-l border-border pl-3 pb-1">
+                          <MobileNavLink
+                            href={item.href}
+                            onOpenChange={setMobileOpen}
+                          >
+                            Overview
+                          </MobileNavLink>
+                          {item.items.map((sub) => (
+                            <MobileNavLink
+                              key={sub.href}
+                              href={sub.href}
+                              onOpenChange={setMobileOpen}
+                            >
+                              {sub.label}
+                            </MobileNavLink>
+                          ))}
+                        </div>
+                      </details>
+                    ) : (
+                      <MobileNavLink
+                        key={item.href}
+                        href={item.href}
+                        onOpenChange={setMobileOpen}
+                      >
+                        {item.label}
+                      </MobileNavLink>
+                    ),
+                  )}
                   <MobileNavLink
                     href="/hose-assemblies"
                     onOpenChange={setMobileOpen}

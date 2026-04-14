@@ -52,8 +52,9 @@ export const corrugatedNTypeContent = {
     { label: "N-Type", href: "/products/corrugated-hose/n-type" },
   ],
   hero: {
-    imageSrc: "/images/products/corrugated/corrugated-n-type-1.png",
-    imageAlt: "N-type stainless steel corrugated metal hose with stainless braid",
+    imageSrc: "/images/N-TypeCorrugatedMetalHose.png",
+    imageAlt:
+      "N-type stainless steel corrugated metal hose with stainless braid",
     title: "N-Type Stainless Steel Corrugated Metal Hose",
     body: "321 or 316L annular butt-welded hydroformed hose with standard pitch corrugations — engineered for flexibility across pressure ranges with 300-series stainless braid.",
     primaryCta: contactCta,
@@ -96,8 +97,9 @@ export const corrugatedPTypeContent = {
     { label: "P-Type", href: "/products/corrugated-hose/p-type" },
   ],
   hero: {
-    imageSrc: "/images/products/corrugated/corrugated-p-type-1.png",
-    imageAlt: "P-type stainless steel corrugated metal hose with stainless braid",
+    imageSrc: "/images/P-TypeCorrugatedMetalHose.png",
+    imageAlt:
+      "P-type stainless steel corrugated metal hose with stainless braid",
     title: "P-Type Stainless Steel Corrugated Metal Hose",
     body: "321 or 316L omega butt-welded hydroformed hose with closed pitch corrugations — high flexibility with 300-series stainless braid.",
     primaryCta: contactCta,
