@@ -187,7 +187,7 @@ export const companyPagesContent = {
   },
   careers: {
     hero: {
-      imageSrc: "/images/hero.jpg",
+      imageSrc: "/images/hero2.jpg",
       imageAlt: "Careers at TMFlex",
       title: "Join Our Growing U.S. Team",
       body: "TMFlex is expanding across the United States and seeking experienced sales professionals to help drive our next phase of growth.",
@@ -212,7 +212,7 @@ export const companyPagesContent = {
   },
   locations: {
     hero: {
-      imageSrc: "/images/hero.jpg",
+      imageSrc: "/images/hero2.jpg",
       imageAlt: "TMFlex locations",
       title: "Locations",
       body: "Production, warehousing, and sales support across the United States and Mexico.",
@@ -278,7 +278,7 @@ export const companyPagesContent = {
   },
   qualitySystem: {
     hero: {
-      imageSrc: "/images/hero.jpg",
+      imageSrc: "/images/hero2.jpg",
       imageAlt: "TMFlex quality system and certifications",
       title: "Quality System",
       body: "Quality, safety, and compliance across our manufacturing operations and product lines — including our certifications.",
@@ -314,7 +314,7 @@ export const productCategoryHeroHeight = "h-[420px] sm:h-[460px]" as const;
 
 export const productsLandingContent = {
   hero: {
-    imageSrc: "/images/hero.jpg",
+    imageSrc: "/images/hero2.jpg",
     imageAlt: "TMFlex products",
     title: "Products",
     body: "Corrugated hose, interlocked hose, and explosion-proof flexible conduit for industrial and commercial applications.",
@@ -390,7 +390,7 @@ export const productCategoryContent = {
 
 export const hoseAssembliesContent = {
   hero: {
-    imageSrc: "/images/hero.jpg",
+    imageSrc: "/images/hero2.jpg",
     imageAlt: "Hose assemblies",
     title: "Hose Assemblies",
     body: "Custom-fabricated hose assemblies backed by TMF manufacturing expertise and U.S.-based distribution support.",
